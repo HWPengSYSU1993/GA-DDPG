@@ -38,12 +38,14 @@ Example 1      |  Example 2
 1. To save extra gpus for online rollouts, use the offline training script ```bash ./experiments/scripts/train_offline.sh bc_aux_dagger.yaml BC```
 2. Saving dataset ```bash ./experiments/scripts/train_online_save_buffer.sh bc_save_data.yaml BC```.
 
-#### problems
+#### Problems
 1. Copy handover_sim/OMG-Planner to handover_sim/GA-DDPG/OMG-Planner, and then rename this package to 'OMG'
 2. No module named PyKDL.so.
-   solution see (https://mr-winter.blog.csdn.net/article/details/130461453?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7EPosition-2-130461453-blog-121039068.235%5Ev38%5Epc_relevant_anti_vip&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7EPosition-2-130461453-blog-121039068.235%5Ev38%5Epc_relevant_anti_vip&utm_relevant_index=3)
+
+solution see (https://mr-winter.blog.csdn.net/article/details/130461453?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7EPosition-2-130461453-blog-121039068.235%5Ev38%5Epc_relevant_anti_vip&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7EPosition-2-130461453-blog-121039068.235%5Ev38%5Epc_relevant_anti_vip&utm_relevant_index=3)
 4. No module named omg_cuda.
-   copy /home/hwpeng/handover-sim/OMG-Planner/layers/build/lib.linux-x86_64-cpython-38/omg_cuda.cpython-38-x86_64-linux-gnu.so to the conda env path '/home/hwpeng/.conda/envs/gaddpg/lib/python3.8/site-packages'
+   
+copy /home/hwpeng/handover-sim/OMG-Planner/layers/build/lib.linux-x86_64-cpython-38/omg_cuda.cpython-38-x86_64-linux-gnu.so to the conda env path '/home/hwpeng/.conda/envs/gaddpg/lib/python3.8/site-packages'
 
 ### Online Training and Testing
 0. We use [ray](https://github.com/ray-project/ray) for parallel rollout and training. The training scripts might require adjustment according to the local machine. See ```config.py``` for some notes.
