@@ -33,10 +33,7 @@ Example 1      |  Example 2
 :-------------------------:|:-------------------------:
 <img src="assets/demo.gif" width="224" height="224"/>  |  <img src="assets/demo3.gif" width="224" height="224"/>
 
-### Save Data and Offline Training
-0. Download example offline data ```bash experiments/scripts/download_offline_data.sh ``` The .npz dataset (saved replay buffer) can be found in ```data/offline_data``` and can be loaded for training (there are several deprecated attributes). The image version of the offline buffer can be found here.
-1. To save extra gpus for online rollouts, use the offline training script ```bash ./experiments/scripts/train_offline.sh bc_aux_dagger.yaml BC```
-2. Saving dataset ```bash ./experiments/scripts/train_online_save_buffer.sh bc_save_data.yaml BC```.
+
 
 #### Problems
 1. Copy handover_sim/OMG-Planner to handover_sim/GA-DDPG/OMG-Planner, and then rename this package to 'OMG'
@@ -61,12 +58,18 @@ $ export LD_LIBRARY_PATH=/home/hwpeng/miniconda3/envs/handover_sim/lib:$LD_LIBRA
    
 copy /home/hwpeng/handover-sim/OMG-Planner/layers/build/lib.linux-x86_64-cpython-38/omg_cuda.cpython-38-x86_64-linux-gnu.so to the conda env path '/home/hwpeng/.conda/envs/gaddpg/lib/python3.8/site-packages'
 
+### Save Data and Offline Training
+0. Download example offline data ```bash experiments/scripts/download_offline_data.sh ``` The .npz dataset (saved replay buffer) can be found in ```data/offline_data``` and can be loaded for training (there are several deprecated attributes). The image version of the offline buffer can be found here.
+1. To save extra gpus for online rollouts, use the offline training script ```bash ./experiments/scripts/train_offline.sh bc_aux_dagger.yaml BC```
+2. Saving dataset ```bash ./experiments/scripts/train_online_save_buffer.sh bc_save_data.yaml BC```.
+   
 ### Online Training and Testing
 0. We use [ray](https://github.com/ray-project/ray) for parallel rollout and training. The training scripts might require adjustment according to the local machine. See ```config.py``` for some notes.
 1. Training online ```bash ./experiments/scripts/train_online_visdom.sh td3_critic_aux_policy_aux.yaml DDPG```. Use visdom and tensorboard to monitor.
 2. If the above command line don't work, try
+
    $ PYTHONUNBUFFERED=True CUDA_VISIBLE_DEVICES=0,1,2 python -m core.train_online --save_model --config_file td3_critic_aux_policy_aux.yaml --policy DDPG --log --fix_output_time ddpg_model_233_300000_18 --seed 233 --max_epoch 300000
-4. Testing on YCB objects ```bash ./experiments/scripts/test_ycb.sh demo_model```. Replace demo_model with trained models. Logs and videos would be saved to ```output_misc```
+3. Testing on YCB objects ```bash ./experiments/scripts/test_ycb.sh demo_model```. Replace demo_model with trained models. Logs and videos would be saved to ```output_misc```
 
 
 ### Note
