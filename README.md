@@ -45,6 +45,8 @@ Example 1      |  Example 2
 
 solution see (https://mr-winter.blog.csdn.net/article/details/130461453?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7EPosition-2-130461453-blog-121039068.235%5Ev38%5Epc_relevant_anti_vip&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7EPosition-2-130461453-blog-121039068.235%5Ev38%5Epc_relevant_anti_vip&utm_relevant_index=3)
 
+or see file "【已解决】Linux-conda环境下安装PyKDL库_ No module named ‘PyKDL‘.pdf")
+
 3. No module named omg_cuda.
    
 copy /home/hwpeng/handover-sim/OMG-Planner/layers/build/lib.linux-x86_64-cpython-38/omg_cuda.cpython-38-x86_64-linux-gnu.so to the conda env path '/home/hwpeng/.conda/envs/gaddpg/lib/python3.8/site-packages'
