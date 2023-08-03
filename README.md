@@ -35,7 +35,7 @@ Example 1      |  Example 2
 
 
 
-#### Problems
+### Problems
 1. Copy handover_sim/OMG-Planner to handover_sim/GA-DDPG/OMG-Planner, and then rename this package to 'OMG'
    
 2. No module named PyKDL
