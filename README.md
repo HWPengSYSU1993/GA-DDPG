@@ -64,7 +64,9 @@ copy /home/hwpeng/handover-sim/OMG-Planner/layers/build/lib.linux-x86_64-cpython
 ### Online Training and Testing
 0. We use [ray](https://github.com/ray-project/ray) for parallel rollout and training. The training scripts might require adjustment according to the local machine. See ```config.py``` for some notes.
 1. Training online ```bash ./experiments/scripts/train_online_visdom.sh td3_critic_aux_policy_aux.yaml DDPG```. Use visdom and tensorboard to monitor.
-2. Testing on YCB objects ```bash ./experiments/scripts/test_ycb.sh demo_model```. Replace demo_model with trained models. Logs and videos would be saved to ```output_misc```
+2. If the above command line don't work, try
+   $ PYTHONUNBUFFERED=True CUDA_VISIBLE_DEVICES=0,1,2 python -m core.train_online --save_model --config_file td3_critic_aux_policy_aux.yaml --policy DDPG --log --fix_output_time ddpg_model_233_300000_18 --seed 233 --max_epoch 300000
+4. Testing on YCB objects ```bash ./experiments/scripts/test_ycb.sh demo_model```. Replace demo_model with trained models. Logs and videos would be saved to ```output_misc```
 
 
 ### Note
